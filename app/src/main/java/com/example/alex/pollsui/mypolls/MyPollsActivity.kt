@@ -1,9 +1,10 @@
-package com.example.alex.pollsui
+package com.example.alex.pollsui.mypolls
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.example.alex.pollsui.R
 
-class MainActivity : AppCompatActivity() {
+class MyPollsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
