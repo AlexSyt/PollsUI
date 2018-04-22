@@ -35,7 +35,9 @@ class PollsFakeDataSource : PollsDataSource {
     private val answers by lazy {
         Log.d("FakeData", "Init answers")
         val res = ArrayList<Answer>()
-        suffixes.keys.forEach { res.add(Answer("Answer".addSuffix(it))) }
+        suffixes.keys.forEach {
+            res.add(Answer("Answer".addSuffix(it)))
+        }
         res
     }
 
@@ -62,7 +64,8 @@ class PollsFakeDataSource : PollsDataSource {
 
 
     private fun generatePoll(index: Int): Poll {
-        val poll = Poll("Poll".addSuffix(index), User("Author".addSuffix(index), "Password".addSuffix(index)))
+        val author = User("Author".addSuffix(index), "Password".addSuffix(index))
+        val poll = Poll("Poll".addSuffix(index), author)
         poll.questions.addAll(questions)
         return poll
     }
