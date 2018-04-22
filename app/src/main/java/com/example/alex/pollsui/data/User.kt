@@ -1,8 +1,7 @@
 package com.example.alex.pollsui.data
 
-import android.support.annotation.NonNull
 import java.util.*
 
-data class User constructor(@NonNull val name: String, @NonNull val password: String) {
+data class User constructor(val name: String, val password: String) {
     val id: String = UUID.randomUUID().toString()
 }
