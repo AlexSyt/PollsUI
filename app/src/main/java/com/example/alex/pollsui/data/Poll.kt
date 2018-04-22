@@ -5,5 +5,5 @@ import kotlin.collections.ArrayList
 
 data class Poll constructor(val title: String, val author: User) {
     val id: String = UUID.randomUUID().toString()
-    val questions: List<Question> = ArrayList()
+    val questions: MutableList<Question> = ArrayList()
 }
