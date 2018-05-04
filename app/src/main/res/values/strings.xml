@@ -3,4 +3,6 @@
 	<string name="my_polls">My polls</string>
 	<string name="other_polls">Other polls</string>
 	<string name="polls">Polls</string>
+	<string name="loading_error">Error while loading polls</string>
+	<string name="author">Author: %1$s</string>
 </resources>
