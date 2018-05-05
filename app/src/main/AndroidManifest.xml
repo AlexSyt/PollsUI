@@ -9,7 +9,7 @@
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
 		<activity
-			android:name="com.example.alex.pollsui.mypolls.MyPollsActivity"
+			android:name="com.example.alex.pollsui.polls.PollsActivity"
 			android:theme="@style/AppTheme.OverlapSystemBar">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
