@@ -4,7 +4,7 @@ import com.example.alex.pollsui.data.Poll
 import com.example.alex.pollsui.data.source.PollsDataSource
 import com.example.alex.pollsui.data.source.PollsRepository
 
-class PollsPresenter(val pollsRepository: PollsRepository, val pollsView: PollsContract.View)
+class PollsPresenter(private val pollsRepository: PollsRepository, private val pollsView: PollsContract.View)
     : PollsContract.Presenter {
 
     override var currentFiltering = PollsFilteringType.MY_POLLS

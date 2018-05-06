@@ -6,8 +6,8 @@ import com.example.alex.pollsui.data.Poll
  * Concrete implementation to load polls from the data sources. For simplicity, cache in not used.
  */
 class PollsRepository(
-        val remoteDataSource: PollsDataSource,
-        val fakeDataSource: PollsDataSource
+        private val remoteDataSource: PollsDataSource,
+        private val fakeDataSource: PollsDataSource
 ) : PollsDataSource {
 
     override fun getPolls(authorId: String?, callback: PollsDataSource.LoadPollsCallback) {
