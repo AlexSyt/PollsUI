@@ -10,6 +10,7 @@ import android.view.MenuItem
 import com.example.alex.pollsui.R
 import com.example.alex.pollsui.data.source.PollsRepository
 import com.example.alex.pollsui.data.source.local.PollsFakeDataSource
+import com.example.alex.pollsui.data.source.remote.PollsRemoteDataSource
 import com.example.alex.pollsui.util.replaceFragment
 import com.example.alex.pollsui.util.setupActionBar
 
@@ -40,7 +41,7 @@ class PollsActivity : AppCompatActivity() {
             replaceFragment(it, R.id.content_frame)
         }
 
-        val repository = PollsRepository(PollsFakeDataSource(), PollsFakeDataSource()) // FIXME(create remote data source)
+        val repository = PollsRepository(PollsRemoteDataSource(), PollsFakeDataSource())
 
         pollsPresenter = PollsPresenter(repository, pollsFragment).apply {
             savedInstanceState?.apply {
