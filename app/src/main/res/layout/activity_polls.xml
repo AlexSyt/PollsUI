@@ -22,10 +22,9 @@
 				android:id="@+id/toolbar"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:background="?attr/colorPrimary"
-				android:minHeight="?attr/actionBarSize"
-				android:theme="@style/Toolbar"
-				app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+				android:background="?android:attr/colorPrimary"
+				android:minHeight="?android:attr/actionBarSize"
+				android:theme="@style/Toolbar"/>
 
 		</android.support.design.widget.AppBarLayout>
 
