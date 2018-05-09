@@ -41,4 +41,16 @@ class PollsRepository(
     override fun submitPoll(poll: Poll) {
         remoteDataSource.createPoll(poll)
     }
+
+    companion object {
+
+        private var INSTANCE: PollsRepository? = null
+
+        @JvmStatic
+        fun getInstance(remoteDataSource: PollsDataSource,
+                        fakeDataSource: PollsDataSource): PollsRepository {
+            return INSTANCE ?: PollsRepository(remoteDataSource, fakeDataSource)
+                    .apply { INSTANCE = this }
+        }
+    }
 }

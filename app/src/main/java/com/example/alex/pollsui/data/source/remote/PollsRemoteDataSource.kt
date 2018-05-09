@@ -29,4 +29,12 @@ class PollsRemoteDataSource : PollsDataSource {
     override fun submitPoll(poll: Poll) {
         TODO("not implemented")
     }
+
+    companion object {
+
+        private var INSTANCE: PollsRemoteDataSource? = null
+
+        @JvmStatic
+        fun getInstance() = INSTANCE ?: PollsRemoteDataSource().apply { INSTANCE = this }
+    }
 }
