@@ -20,7 +20,7 @@ class PollsActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
 
-    private lateinit var pollsPresenter: PollsPresenter
+    private lateinit var pollsPresenter: PollsContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
