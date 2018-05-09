@@ -5,4 +5,8 @@
 	<string name="polls">Polls</string>
 	<string name="loading_error">Error while loading polls</string>
 	<string name="author">Author: %1$s</string>
+	<string name="save">Save</string>
+	<string name="title">Title</string>
+	<string name="create_poll">Create poll</string>
+	<string name="invalid_data_error">Invalid data, please check the input.</string>
 </resources>
