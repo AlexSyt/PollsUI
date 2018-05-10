@@ -75,4 +75,12 @@ class PollsFakeDataSource : PollsDataSource {
         val suffix = suffixes[index]
         return "$suffix $this"
     }
+
+    companion object {
+
+        private var INSTANCE: PollsFakeDataSource? = null
+
+        @JvmStatic
+        fun getInstance() = INSTANCE ?: PollsFakeDataSource().apply { INSTANCE = this }
+    }
 }

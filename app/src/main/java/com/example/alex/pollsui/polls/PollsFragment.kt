@@ -1,5 +1,6 @@
 package com.example.alex.pollsui.polls
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
@@ -14,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.alex.pollsui.R
+import com.example.alex.pollsui.addpoll.AddPollActivity
 import com.example.alex.pollsui.data.Poll
 
 class PollsFragment : Fragment(), PollsContract.View {
@@ -75,7 +77,7 @@ class PollsFragment : Fragment(), PollsContract.View {
     }
 
     override fun showAddPoll() {
-        showMessage("Add poll") // FIXME
+        startActivity(Intent(context, AddPollActivity::class.java))
     }
 
     override fun showPollStatistic(poll: Poll) {

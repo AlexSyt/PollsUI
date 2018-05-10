@@ -7,9 +7,8 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import com.example.alex.pollsui.Injection
 import com.example.alex.pollsui.R
-import com.example.alex.pollsui.data.source.PollsRepository
-import com.example.alex.pollsui.data.source.local.PollsFakeDataSource
 import com.example.alex.pollsui.util.replaceFragment
 import com.example.alex.pollsui.util.setupActionBar
 
@@ -19,7 +18,7 @@ class PollsActivity : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
 
-    private lateinit var pollsPresenter: PollsPresenter
+    private lateinit var pollsPresenter: PollsContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +39,7 @@ class PollsActivity : AppCompatActivity() {
             replaceFragment(it, R.id.content_frame)
         }
 
-        val repository = PollsRepository(PollsFakeDataSource(), PollsFakeDataSource()) // FIXME(create remote data source)
-
-        pollsPresenter = PollsPresenter(repository, pollsFragment).apply {
+        pollsPresenter = PollsPresenter(Injection.providePollsRepository(), pollsFragment).apply {
             savedInstanceState?.apply {
                 currentFiltering = getSerializable(CURRENT_FILTERING_KEY) as PollsFilteringType
             }
