@@ -1,5 +1,7 @@
 package com.example.alex.pollsui.addpoll
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
@@ -40,8 +42,22 @@ class AddPollFragment : Fragment(), AddPollContract.View {
         return ""
     }
 
+    @SuppressLint("InflateParams")
     override fun showAddQuestionDialog() {
-        showMessage("Add question dialog") // FIXME
+        val view = LayoutInflater.from(context).inflate(R.layout.dialog_add_question, null)
+        AlertDialog.Builder(context)
+                .setTitle(R.string.add_question)
+                .setView(view)
+                .setPositiveButton(android.R.string.ok, { _, _ ->
+                    val title = view.findViewById<EditText>(R.id.title).text.toString()
+                    val firstAnswer = view.findViewById<EditText>(R.id.first_answer).text.toString()
+                    val secondAnswer = view.findViewById<EditText>(R.id.second_answer).text.toString()
+                    val thirdAnswer = view.findViewById<EditText>(R.id.third_answer).text.toString()
+                    presenter.saveQuestion(title, listOf(firstAnswer, secondAnswer, thirdAnswer))
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .create()
+                .show()
     }
 
     override fun showQuestion(question: Question) {

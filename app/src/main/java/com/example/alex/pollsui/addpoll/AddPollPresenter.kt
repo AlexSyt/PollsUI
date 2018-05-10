@@ -18,7 +18,7 @@ class AddPollPresenter(private val pollsRepository: PollsDataSource, private val
     }
 
     override fun saveQuestion(title: String, answers: List<String>) {
-        TODO("not implemented")
+
     }
 
     override fun savePoll() {
