@@ -18,7 +18,9 @@ interface AddPollContract {
 
         fun showPollsList()
 
-        fun showInvalidDataError()
+        fun showInvalidQuestionError()
+
+        fun showInvalidPollError()
     }
 
     interface Presenter : BasePresenter {
