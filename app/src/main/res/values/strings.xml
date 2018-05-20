@@ -8,5 +8,10 @@
 	<string name="save">Save</string>
 	<string name="title">Title</string>
 	<string name="create_poll">Create poll</string>
-	<string name="invalid_data_error">Invalid data, please check the input.</string>
+	<string name="invalid_question_error">Question must have title and at least 2 answers.</string>
+	<string name="invalid_poll_error">Poll must have title and at least 1 question.</string>
+	<string name="first_answer">First answer</string>
+	<string name="second_answer">Second answer</string>
+	<string name="third_answer">Third answer</string>
+	<string name="add_question">Create question</string>
 </resources>
