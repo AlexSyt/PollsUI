@@ -4,7 +4,6 @@ import android.util.Log
 import com.example.alex.pollsui.data.Answer
 import com.example.alex.pollsui.data.Poll
 import com.example.alex.pollsui.data.Question
-import com.example.alex.pollsui.data.User
 import com.example.alex.pollsui.data.source.PollsDataSource
 
 class PollsFakeDataSource : PollsDataSource {
@@ -13,7 +12,7 @@ class PollsFakeDataSource : PollsDataSource {
 
     private val polls by lazy {
         Log.d("FakeData", "Init polls")
-        val res = LinkedHashMap<String, Poll>()
+        val res = LinkedHashMap<String?, Poll>()
         suffixes.keys.forEach {
             val poll = generatePoll(it)
             res[poll.id] = poll
@@ -64,8 +63,8 @@ class PollsFakeDataSource : PollsDataSource {
 
 
     private fun generatePoll(index: Int): Poll {
-        val author = User("Author".addSuffix(index), "Password".addSuffix(index))
-        val poll = Poll("Poll".addSuffix(index), author)
+        val author = "Author".addSuffix(index)
+        val poll = Poll("Poll".addSuffix(index), author, "id".addSuffix(index))
         poll.questions.addAll(questions)
         return poll
     }

@@ -117,7 +117,7 @@ class PollsFragment : Fragment(), PollsContract.View {
             val poll = polls[position]
             holder.title.text = poll.title
             holder.description.apply {
-                text = context.getString(R.string.author, poll.author.name)
+                text = context.getString(R.string.author, poll.author)
             }
         }
 
