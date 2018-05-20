@@ -3,7 +3,6 @@ package com.example.alex.pollsui.addpoll
 import com.example.alex.pollsui.data.Answer
 import com.example.alex.pollsui.data.Poll
 import com.example.alex.pollsui.data.Question
-import com.example.alex.pollsui.data.User
 import com.example.alex.pollsui.data.source.PollsDataSource
 
 class AddPollPresenter(private val pollsRepository: PollsDataSource, private val addPollView: AddPollContract.View)
@@ -40,7 +39,7 @@ class AddPollPresenter(private val pollsRepository: PollsDataSource, private val
         if (title.isBlank() || questions.isEmpty()) {
             addPollView.showInvalidPollError()
         } else {
-            val poll = Poll(title, User("user", "password")) // FIXME
+            val poll = Poll(title, "user1") // FIXME
             poll.questions.addAll(questions)
             pollsRepository.createPoll(poll)
             addPollView.showPollsList()

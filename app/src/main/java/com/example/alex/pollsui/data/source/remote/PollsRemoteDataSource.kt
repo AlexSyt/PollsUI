@@ -52,11 +52,11 @@ class PollsRemoteDataSource : PollsDataSource {
     }
 
     override fun createPoll(poll: Poll) {
-        TODO("not implemented")
+        // FIXME
     }
 
     override fun submitPoll(poll: Poll) {
-        TODO("not implemented")
+        // FIXME
     }
 
     companion object {
