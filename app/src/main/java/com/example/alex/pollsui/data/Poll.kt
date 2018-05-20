@@ -1,9 +1,10 @@
 package com.example.alex.pollsui.data
 
-import java.util.*
-import kotlin.collections.ArrayList
+import com.google.gson.annotations.SerializedName
 
-data class Poll constructor(val title: String, val author: User) {
-    val id: String = UUID.randomUUID().toString()
-    val questions: MutableList<Question> = ArrayList()
-}
+data class Poll constructor(
+        @SerializedName("name") val title: String,
+        @SerializedName("author") val author: String,
+        @SerializedName("id") val id: String? = null,
+        @SerializedName("questions") val questions: MutableList<Question> = ArrayList()
+)
