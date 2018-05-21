@@ -39,7 +39,7 @@ class PollsRepository(
     }
 
     override fun submitPoll(poll: Poll) {
-        remoteDataSource.createPoll(poll)
+        remoteDataSource.submitPoll(poll)
     }
 
     companion object {

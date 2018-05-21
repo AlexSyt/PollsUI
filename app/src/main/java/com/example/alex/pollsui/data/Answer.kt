@@ -1,7 +1,9 @@
 package com.example.alex.pollsui.data
 
-import java.util.*
+import com.google.gson.annotations.SerializedName
 
-data class Answer constructor(val title: String) {
-    val id: String = UUID.randomUUID().toString()
-}
+data class Answer constructor(
+        @SerializedName("text") val title: String,
+        @SerializedName("id") val id: String? = null,
+        @SerializedName("count") val count: Int = 0
+)
