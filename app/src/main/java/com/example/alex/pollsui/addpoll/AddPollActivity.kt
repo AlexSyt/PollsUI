@@ -15,7 +15,7 @@ class AddPollActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_poll)
+        setContentView(R.layout.activity_create_complete_poll)
 
         setupActionBar(R.id.toolbar) {
             setDisplayHomeAsUpEnabled(true)

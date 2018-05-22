@@ -34,7 +34,7 @@ class PollsRemoteDataSource : PollsDataSource {
         return apiService.getPollsList()
     }
 
-    override fun getPoll(pollId: String, callback: PollsDataSource.GetPollCallback) {
+    override fun getPoll(pollId: String?, callback: PollsDataSource.GetPollCallback) {
         apiService.getPoll(pollId).enqueue(object : Callback<Poll> {
             override fun onResponse(call: Call<Poll>?, response: Response<Poll>?) {
                 val poll = response?.body()

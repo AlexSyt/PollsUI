@@ -20,7 +20,7 @@ interface PollsApiService {
     fun getMyPollsList(): Call<List<Poll>>
 
     @GET("getPoll")
-    fun getPoll(@Query("id") id: String): Call<Poll>
+    fun getPoll(@Query("id") id: String?): Call<Poll>
 
     @POST("createPoll")
     fun createPoll(@Body poll: Poll): Call<Poll>
@@ -28,7 +28,7 @@ interface PollsApiService {
     companion object Factory {
 
         fun create(): PollsApiService {
-            val credentials = "user1:password"
+            val credentials = "user2:password"
             val basic = "Basic " + Base64.encodeToString(credentials.toByteArray(), Base64.NO_WRAP)
 
             val httpClient = OkHttpClient.Builder()

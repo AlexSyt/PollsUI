@@ -22,7 +22,7 @@ class PollsRepository(
         })
     }
 
-    override fun getPoll(pollId: String, callback: PollsDataSource.GetPollCallback) {
+    override fun getPoll(pollId: String?, callback: PollsDataSource.GetPollCallback) {
         remoteDataSource.getPoll(pollId, object : PollsDataSource.GetPollCallback {
             override fun onPollLoaded(poll: Poll) {
                 callback.onPollLoaded(poll)

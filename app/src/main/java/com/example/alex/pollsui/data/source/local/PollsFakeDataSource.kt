@@ -44,7 +44,7 @@ class PollsFakeDataSource : PollsDataSource {
         callback.onPollsLoaded(ArrayList(polls.values))
     }
 
-    override fun getPoll(pollId: String, callback: PollsDataSource.GetPollCallback) {
+    override fun getPoll(pollId: String?, callback: PollsDataSource.GetPollCallback) {
         val poll = polls[pollId]
         if (poll != null) {
             callback.onPollLoaded(poll)
