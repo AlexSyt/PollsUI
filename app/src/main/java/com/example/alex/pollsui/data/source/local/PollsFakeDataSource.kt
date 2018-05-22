@@ -53,7 +53,7 @@ class PollsFakeDataSource : PollsDataSource {
         }
     }
 
-    override fun createPoll(poll: Poll) {
+    override fun createPoll(poll: Poll, callback: PollsDataSource.CreatePollCallback) {
         polls[poll.id] = poll
     }
 

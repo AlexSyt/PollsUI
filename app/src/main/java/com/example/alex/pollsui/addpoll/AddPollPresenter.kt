@@ -41,8 +41,12 @@ class AddPollPresenter(private val pollsRepository: PollsDataSource, private val
         } else {
             val poll = Poll(title, "user1") // FIXME
             poll.questions.addAll(questions)
-            pollsRepository.createPoll(poll)
-            addPollView.showPollsList()
+            addPollView.setLoadingIndicator(true)
+            pollsRepository.createPoll(poll, object : PollsDataSource.CreatePollCallback {
+                override fun onResult(successful: Boolean) {
+                    addPollView.showPollsList()
+                }
+            })
         }
     }
 

@@ -51,8 +51,16 @@ class PollsRemoteDataSource : PollsDataSource {
         })
     }
 
-    override fun createPoll(poll: Poll) {
-        // FIXME
+    override fun createPoll(poll: Poll, callback: PollsDataSource.CreatePollCallback) {
+        apiService.createPoll(poll).enqueue(object : Callback<Poll> {
+            override fun onResponse(call: Call<Poll>?, response: Response<Poll>?) {
+                callback.onResult(true)
+            }
+
+            override fun onFailure(call: Call<Poll>?, t: Throwable?) {
+                callback.onResult(false)
+            }
+        })
     }
 
     override fun submitPoll(poll: Poll) {

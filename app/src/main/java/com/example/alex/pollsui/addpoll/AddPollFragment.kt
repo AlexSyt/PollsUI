@@ -46,6 +46,12 @@ class AddPollFragment : Fragment(), AddPollContract.View {
         presenter.start()
     }
 
+    override fun setLoadingIndicator(active: Boolean) {
+        view?.apply {
+            findViewById<View>(R.id.progress_bar).visibility = if (active) View.VISIBLE else View.GONE
+        }
+    }
+
     override fun getTitle(): String {
         view?.apply {
             return findViewById<EditText>(R.id.title).text.toString().trim()
