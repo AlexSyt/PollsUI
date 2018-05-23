@@ -10,6 +10,8 @@ interface AddPollContract {
 
         var isActive: Boolean
 
+        fun setLoadingIndicator(active: Boolean)
+
         fun getTitle(): String
 
         fun showAddQuestionDialog()

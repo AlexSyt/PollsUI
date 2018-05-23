@@ -14,4 +14,6 @@
 	<string name="second_answer">Second answer</string>
 	<string name="third_answer">Third answer</string>
 	<string name="add_question">Create question</string>
+	<string name="complete_poll">Complete poll</string>
+	<string name="complete_poll_error">Please, answer all questions.</string>
 </resources>

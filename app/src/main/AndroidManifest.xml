@@ -19,6 +19,7 @@
 			</intent-filter>
 		</activity>
 		<activity android:name="com.example.alex.pollsui.addpoll.AddPollActivity"/>
+		<activity android:name="com.example.alex.pollsui.completepoll.CompletePollActivity"/>
 	</application>
 
 </manifest>

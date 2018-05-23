@@ -39,10 +39,14 @@ class AddPollPresenter(private val pollsRepository: PollsDataSource, private val
         if (title.isBlank() || questions.isEmpty()) {
             addPollView.showInvalidPollError()
         } else {
-            val poll = Poll(title, "user1") // FIXME
+            val poll = Poll(title)
             poll.questions.addAll(questions)
-            pollsRepository.createPoll(poll)
-            addPollView.showPollsList()
+            addPollView.setLoadingIndicator(true)
+            pollsRepository.createPoll(poll, object : PollsDataSource.CreatePollCallback {
+                override fun onResult(successful: Boolean) {
+                    addPollView.showPollsList()
+                }
+            })
         }
     }
 

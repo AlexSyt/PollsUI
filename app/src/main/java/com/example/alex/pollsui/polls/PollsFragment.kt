@@ -16,6 +16,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.alex.pollsui.R
 import com.example.alex.pollsui.addpoll.AddPollActivity
+import com.example.alex.pollsui.completepoll.CompletePollActivity
 import com.example.alex.pollsui.data.Poll
 
 class PollsFragment : Fragment(), PollsContract.View {
@@ -85,7 +86,9 @@ class PollsFragment : Fragment(), PollsContract.View {
     }
 
     override fun startPoll(poll: Poll) {
-        showMessage("Start poll") // FIXME
+        val intent = Intent(context, CompletePollActivity::class.java)
+        intent.putExtra("poll_id", poll.id)
+        startActivity(intent)
     }
 
     override fun showLoadingPollsError() {

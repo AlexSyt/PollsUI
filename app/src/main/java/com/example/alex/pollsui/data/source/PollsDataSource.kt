@@ -21,11 +21,15 @@ interface PollsDataSource {
         fun onDataNotAvailable()
     }
 
+    interface CreatePollCallback {
+        fun onResult(successful: Boolean)
+    }
+
     fun getPolls(authorId: String? = null, callback: LoadPollsCallback)
 
-    fun getPoll(pollId: String, callback: GetPollCallback)
+    fun getPoll(pollId: String?, callback: GetPollCallback)
 
-    fun createPoll(poll: Poll)
+    fun createPoll(poll: Poll, callback: CreatePollCallback)
 
     fun submitPoll(poll: Poll)
 }

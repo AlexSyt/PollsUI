@@ -6,7 +6,9 @@ import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface PollsApiService {
@@ -18,12 +20,15 @@ interface PollsApiService {
     fun getMyPollsList(): Call<List<Poll>>
 
     @GET("getPoll")
-    fun getPoll(@Query("id") id: String): Call<Poll>
+    fun getPoll(@Query("id") id: String?): Call<Poll>
+
+    @POST("createPoll")
+    fun createPoll(@Body poll: Poll): Call<Poll>
 
     companion object Factory {
 
         fun create(): PollsApiService {
-            val credentials = "user1:password"
+            val credentials = "user2:password"
             val basic = "Basic " + Base64.encodeToString(credentials.toByteArray(), Base64.NO_WRAP)
 
             val httpClient = OkHttpClient.Builder()

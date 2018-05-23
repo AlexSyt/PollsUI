@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -34,8 +35,9 @@ class AddPollFragment : Fragment(), AddPollContract.View {
         rv.layoutManager = LinearLayoutManager(context)
         rv.adapter = adapter
 
-        activity?.findViewById<FloatingActionButton>(R.id.fab_add)?.apply {
+        activity?.findViewById<FloatingActionButton>(R.id.fab)?.apply {
             setOnClickListener { presenter.addQuestion() }
+            setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_action_add))
         }
 
         return root
@@ -44,6 +46,12 @@ class AddPollFragment : Fragment(), AddPollContract.View {
     override fun onResume() {
         super.onResume()
         presenter.start()
+    }
+
+    override fun setLoadingIndicator(active: Boolean) {
+        view?.apply {
+            findViewById<View>(R.id.progress_bar).visibility = if (active) View.VISIBLE else View.GONE
+        }
     }
 
     override fun getTitle(): String {

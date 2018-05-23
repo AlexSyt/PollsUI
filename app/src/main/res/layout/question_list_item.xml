@@ -24,7 +24,7 @@
 			android:textAppearance="?android:attr/textAppearanceListItem"
 			tools:text="Title"/>
 
-		<LinearLayout
+		<RadioGroup
 			android:id="@+id/answers_container"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
