@@ -1,5 +1,6 @@
 package com.example.alex.pollsui.completepoll
 
+import android.text.TextUtils
 import com.example.alex.pollsui.data.Poll
 import com.example.alex.pollsui.data.source.PollsDataSource
 
@@ -47,7 +48,20 @@ class CompletePollPresenter(
     }
 
     override fun submit() {
-        // TODO: add checks
-        pollsRepository.submitPoll(poll)
+        if (isAllQuestionsAnswered()) {
+            pollsRepository.submitPoll(poll)
+            completePollView.showPollsList()
+        } else {
+            completePollView.showError()
+        }
+    }
+
+    private fun isAllQuestionsAnswered(): Boolean {
+        for (question in poll.questions) {
+            if (TextUtils.isEmpty(question.selectedAnswer)) {
+                return false
+            }
+        }
+        return true
     }
 }

@@ -25,6 +25,9 @@ interface PollsApiService {
     @POST("createPoll")
     fun createPoll(@Body poll: Poll): Call<Poll>
 
+    @POST("result")
+    fun submitPoll(@Body poll: Poll): Call<Poll>
+
     companion object Factory {
 
         fun create(): PollsApiService {

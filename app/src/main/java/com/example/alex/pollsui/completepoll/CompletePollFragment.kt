@@ -68,6 +68,10 @@ class CompletePollFragment : Fragment(), CompletePollContract.View {
         showMessage(getString(R.string.complete_poll_error))
     }
 
+    override fun showPollsList() {
+        activity?.finish()
+    }
+
     private fun showMessage(text: String) {
         view?.let {
             Snackbar.make(it, text, Snackbar.LENGTH_LONG).show()

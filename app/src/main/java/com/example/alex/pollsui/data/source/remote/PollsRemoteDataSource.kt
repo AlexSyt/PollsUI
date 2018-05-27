@@ -64,7 +64,15 @@ class PollsRemoteDataSource : PollsDataSource {
     }
 
     override fun submitPoll(poll: Poll) {
-        // FIXME
+        apiService.submitPoll(poll).enqueue(object : Callback<Poll> {
+            override fun onResponse(call: Call<Poll>?, response: Response<Poll>?) {
+
+            }
+
+            override fun onFailure(call: Call<Poll>?, t: Throwable?) {
+
+            }
+        })
     }
 
     companion object {
