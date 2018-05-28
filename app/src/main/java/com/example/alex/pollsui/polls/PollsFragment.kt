@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -82,7 +83,12 @@ class PollsFragment : Fragment(), PollsContract.View {
     }
 
     override fun showPollStatistic(poll: Poll) {
-        showMessage("Show statistic") // FIXME
+        AlertDialog.Builder(context!!)
+                .setTitle(poll.title)
+                .setMessage(poll.getStatisticString())
+                .setPositiveButton(android.R.string.ok, null)
+                .create()
+                .show()
     }
 
     override fun startPoll(poll: Poll) {

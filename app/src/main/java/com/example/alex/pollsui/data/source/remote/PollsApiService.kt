@@ -22,6 +22,9 @@ interface PollsApiService {
     @GET("getPoll")
     fun getPoll(@Query("id") id: String?): Call<Poll>
 
+    @GET("getPollWithStats")
+    fun getPollWithStats(@Query("id") id: String?): Call<Poll>
+
     @POST("createPoll")
     fun createPoll(@Body poll: Poll): Call<Poll>
 
