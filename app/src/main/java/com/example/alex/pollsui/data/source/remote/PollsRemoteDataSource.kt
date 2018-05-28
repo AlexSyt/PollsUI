@@ -35,7 +35,15 @@ class PollsRemoteDataSource : PollsDataSource {
     }
 
     override fun getPoll(pollId: String?, callback: PollsDataSource.GetPollCallback) {
-        apiService.getPoll(pollId).enqueue(object : Callback<Poll> {
+        runCall(apiService.getPoll(pollId), callback)
+    }
+
+    override fun getPollWithStats(pollId: String?, callback: PollsDataSource.GetPollCallback) {
+        runCall(apiService.getPollWithStats(pollId), callback)
+    }
+
+    private fun runCall(call: Call<Poll>, callback: PollsDataSource.GetPollCallback) {
+        call.enqueue(object : Callback<Poll> {
             override fun onResponse(call: Call<Poll>?, response: Response<Poll>?) {
                 val poll = response?.body()
                 if (poll != null) {
@@ -64,7 +72,15 @@ class PollsRemoteDataSource : PollsDataSource {
     }
 
     override fun submitPoll(poll: Poll) {
-        // FIXME
+        apiService.submitPoll(poll).enqueue(object : Callback<Poll> {
+            override fun onResponse(call: Call<Poll>?, response: Response<Poll>?) {
+
+            }
+
+            override fun onFailure(call: Call<Poll>?, t: Throwable?) {
+
+            }
+        })
     }
 
     companion object {

@@ -29,6 +29,8 @@ interface PollsDataSource {
 
     fun getPoll(pollId: String?, callback: GetPollCallback)
 
+    fun getPollWithStats(pollId: String?, callback: GetPollCallback)
+
     fun createPoll(poll: Poll, callback: CreatePollCallback)
 
     fun submitPoll(poll: Poll)

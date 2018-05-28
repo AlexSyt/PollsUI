@@ -53,6 +53,10 @@ class PollsFakeDataSource : PollsDataSource {
         }
     }
 
+    override fun getPollWithStats(pollId: String?, callback: PollsDataSource.GetPollCallback) {
+        callback.onDataNotAvailable()
+    }
+
     override fun createPoll(poll: Poll, callback: PollsDataSource.CreatePollCallback) {
         polls[poll.id] = poll
     }

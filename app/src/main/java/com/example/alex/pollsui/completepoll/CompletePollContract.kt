@@ -15,6 +15,8 @@ interface CompletePollContract {
         fun showPoll(poll: Poll)
 
         fun showError()
+
+        fun showPollsList()
     }
 
     interface Presenter : BasePresenter {

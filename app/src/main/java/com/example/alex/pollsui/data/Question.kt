@@ -6,5 +6,5 @@ data class Question constructor(
         @SerializedName("text") val title: String,
         @SerializedName("id") val id: String? = null,
         @SerializedName("answers") val answers: MutableList<Answer> = ArrayList(),
-        var selectedAnswer: String? = null
+        @SerializedName("selectedAnswer") var selectedAnswer: String? = null
 )

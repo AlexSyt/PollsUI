@@ -46,8 +46,29 @@ class PollsPresenter(private val pollsRepository: PollsDataSource, private val p
 
     override fun openPoll(poll: Poll) {
         when (currentFiltering) {
-            PollsFilteringType.MY_POLLS -> pollsView.showPollStatistic(poll)
+            PollsFilteringType.MY_POLLS -> loadStats(poll)
             PollsFilteringType.OTHER_POLLS -> pollsView.startPoll(poll)
         }
+    }
+
+    private fun loadStats(poll: Poll) {
+        pollsView.setLoadingIndicator(true)
+        pollsRepository.getPollWithStats(poll.id, object : PollsDataSource.GetPollCallback {
+
+            override fun onPollLoaded(poll: Poll) {
+                if (!pollsView.isActive) {
+                    return
+                }
+                pollsView.setLoadingIndicator(false)
+                pollsView.showPollStatistic(poll)
+            }
+
+            override fun onDataNotAvailable() {
+                if (!pollsView.isActive) {
+                    return
+                }
+                pollsView.setLoadingIndicator(false)
+            }
+        })
     }
 }
